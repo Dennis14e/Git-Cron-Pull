@@ -17,9 +17,9 @@ then
 	git --git-dir="${repository[0]}/.git" --work-tree="${repository[0]}" pull origin "${repository[1]}"
 
 	# If repository-path begins with "/var/www/"
-	if [[ "$repository[0]" =~ ^/var/www/* ]]
+	if [[ "${repository[0]}" =~ ^/var/www/* ]]
 	then
-		chown -R www-data:www-data $repository
+		chown -R www-data:www-data "${repository[0]}"
 	fi
 
 	exit 0
